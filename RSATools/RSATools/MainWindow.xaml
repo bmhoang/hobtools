@@ -18,12 +18,22 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Private Key" VerticalAlignment="Center" Margin="10 0 0 0" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 5 0">
+            <TextBlock Text="Key Size" VerticalAlignment="Center"/>
+            <ComboBox x:Name="cbxKeys" Width="75" Margin="5 0" IsDropDownOpen="True" SelectedIndex="0" VerticalContentAlignment="Center">
+                <ComboBoxItem Content="512 bit"/>
+                <ComboBoxItem Content="1024 bit"/>
+                <ComboBoxItem Content="2048 bit"/>
+                <ComboBoxItem Content="4096 bit"/>
+            </ComboBox>
+            <Button Content="Generate New Keys" Padding="5 0" Click="GenNewKeys"/>
+        </StackPanel>
         <TextBlock Text="Public Key" Grid.Column="1" VerticalAlignment="Center" Margin="10 0 0 0"/>
-        <TextBox x:Name="privateKey" Grid.Row="1" AcceptsReturn="True" AcceptsTab="True" Margin="5"/>
-        <TextBox x:Name="publicKey" Grid.Row="1" Grid.Column="1" AcceptsReturn="True" AcceptsTab="True" Margin="5"/>
+        <TextBox x:Name="privateKey" Grid.Row="1" AcceptsReturn="True" AcceptsTab="True" Margin="5" FontFamily="Courier New"/>
+        <TextBox x:Name="publicKey" Grid.Row="1" Grid.Column="1" AcceptsReturn="True" AcceptsTab="True" Margin="5" FontFamily="Courier New"/>
         <TextBlock Text="Plain Text" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
         <Button Content="Decrypt" Grid.Row="2" HorizontalAlignment="Right" Width="100" Margin="0 0 30 0" Click="Decrypt"/>
-        <TextBlock Text="Plain Text" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
+        <TextBlock Text="Cipher Text" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
         <Button Content="Encrypt" Grid.Row="2" Grid.Column="1" Width="100" HorizontalAlignment="Right" Margin="0 0 30 0" Click="Encrypt"/>
         <TextBox x:Name="plainText" Grid.Row="3" AcceptsReturn="True" AcceptsTab="True" Margin="5" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
         <TextBox x:Name="cipherText" Grid.Row="3" Grid.Column="1" AcceptsReturn="True" AcceptsTab="True" Margin="5" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>

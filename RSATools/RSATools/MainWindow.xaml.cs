@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using hob;
 
 namespace RSATools
 {
@@ -30,7 +31,7 @@ namespace RSATools
         {
             try
             {
-                var rsa = new StandardRSA(privateKey.Text, publicKey.Text);
+                var rsa = new StandardRSA(privateKey.Text);
                 plainText.Text = rsa.Decrypt(cipherText.Text);
 
             }
@@ -52,5 +53,16 @@ namespace RSATools
                 MessageBox.Show(exception.Message);
             }
         }
+        static int[] keysize = new int[] { 512, 1024, 2048, 4096 };
+        private void GenNewKeys(object sender, RoutedEventArgs e)
+        {
+            string pubKey;
+            string priKey;
+            SimpleRSA.GenerateBase64RSAKeys(keysize[cbxKeys.SelectedIndex], out priKey, out pubKey);
+            var cryptoServiceProvider = new System.Security.Cryptography.RSACryptoServiceProvider(keysize[cbxKeys.SelectedIndex]);
+            publicKey.Text = cryptoServiceProvider.ExportPublicKey();
+            privateKey.Text = cryptoServiceProvider.ExportPrivateKey();
+        }
+
     }
 }
