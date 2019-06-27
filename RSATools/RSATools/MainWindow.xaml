@@ -1,0 +1,32 @@
+﻿<Window x:Class="RSATools.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RSATools"
+        mc:Ignorable="d"
+        Title="RSA Tools" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Private Key" VerticalAlignment="Center" Margin="10 0 0 0" />
+        <TextBlock Text="Public Key" Grid.Column="1" VerticalAlignment="Center" Margin="10 0 0 0"/>
+        <TextBox x:Name="privateKey" Grid.Row="1" AcceptsReturn="True" AcceptsTab="True" Margin="5"/>
+        <TextBox x:Name="publicKey" Grid.Row="1" Grid.Column="1" AcceptsReturn="True" AcceptsTab="True" Margin="5"/>
+        <TextBlock Text="Plain Text" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
+        <Button Content="Decrypt" Grid.Row="2" HorizontalAlignment="Right" Width="100" Margin="0 0 30 0" Click="Decrypt"/>
+        <TextBlock Text="Plain Text" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
+        <Button Content="Encrypt" Grid.Row="2" Grid.Column="1" Width="100" HorizontalAlignment="Right" Margin="0 0 30 0" Click="Encrypt"/>
+        <TextBox x:Name="plainText" Grid.Row="3" AcceptsReturn="True" AcceptsTab="True" Margin="5" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="cipherText" Grid.Row="3" Grid.Column="1" AcceptsReturn="True" AcceptsTab="True" Margin="5" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+
+    </Grid>
+</Window>
